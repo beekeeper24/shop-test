@@ -2,7 +2,7 @@ spring:
   application:
     name: shop
   datasource:
-    url: jdbc:postgresql://localhost:5432/test?currentSchema=public-c%20TimeZone=Asia/Seoul
+    url: jdbc:postgresql://localhost:5432/test?currentSchema=public
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres

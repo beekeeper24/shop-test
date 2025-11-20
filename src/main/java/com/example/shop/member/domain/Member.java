@@ -1,4 +1,4 @@
-package com.example.shop.member;
+package com.example.shop.member.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -44,7 +44,7 @@ public class Member {
     @Column(name = "flag", length = 5)
     private String flag;
     public Member(){}
-    public Member(UUID id,
+    private Member(UUID id,
                   String email,
                   String name,
                   String password,
@@ -67,6 +67,29 @@ public class Member {
                   String saltKey,
                   String flag) {
         this.id = UUID.fromString(id);
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+        this.saltKey = saltKey;
+        this.flag = flag;
+    }
+
+    public static Member create(String email,
+                                String name,
+                                String password,
+                                String phone,
+                                String saltKey,
+                                String flag) {
+        return new Member(UUID.randomUUID(), email, name, password, phone, saltKey, flag);
+    }
+
+    public void updateInformation(String email,
+                                  String name,
+                                  String password,
+                                  String phone,
+                                  String saltKey,
+                                  String flag ) {
         this.email = email;
         this.name = name;
         this.password = password;
