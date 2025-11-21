@@ -4,8 +4,8 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/test?currentSchema=public
     driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: postgres
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_USERNAME:postgres}
   jackson:
     time-zone: Asia/Seoul
   jpa:
@@ -20,3 +20,9 @@ spring:
 
 api:
   v1: /api/v1
+
+payment:
+  toss:
+    secret-key: ${TOSS_SECRET_KEY:}
+    success-url: ${TOSS_SUCCESS_URL:http://localhost:8080/payments/success.html}
+    fail-url: ${TOSS_FAIL_URL:http://localhost:8080/payments/fail.html}

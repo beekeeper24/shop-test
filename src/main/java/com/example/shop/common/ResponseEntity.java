@@ -1,13 +1,16 @@
 package com.example.shop.common;
 
-public class ResponseEntity<T> {
-    private int status;
-    private T data;
-    private long count;
+import lombok.Data;
 
-    public ResponseEntity(int value, T all, long count) {
-        this.status = value;
-        this.data = all;
+@Data
+public class ResponseEntity<T> {
+    private final int status;
+    private final T data;
+    private final long count;
+
+    public ResponseEntity(int status, T data, long count) {
+        this.status = status;
+        this.data = data;
         this.count = count;
     }
 }

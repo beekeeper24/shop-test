@@ -12,11 +12,12 @@ public record ProductRequest(
         BigDecimal price,
         Integer stock,
         String status,
-        String operatorId
+        String operatorId,
+        UUID sellerId
 ) {
 
     public ProductCommand toCommand() {
         UUID operator = operatorId != null ? UUID.fromString(operatorId) : null;
-        return new ProductCommand(name, description, price, stock, status, operator);
+        return new ProductCommand(name, description, price, stock, status, operator, sellerId);
     }
 }

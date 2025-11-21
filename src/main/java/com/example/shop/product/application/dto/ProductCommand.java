@@ -12,6 +12,7 @@ public record ProductCommand(
         BigDecimal price,
         Integer stock,
         String status,
-        UUID operatorId
+        UUID operatorId,
+        UUID sellerId
 ) {
 }

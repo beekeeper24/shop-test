@@ -36,7 +36,8 @@ public class ProductService {
                 command.price(),
                 command.stock(),
                 command.status(),
-                operator
+                command.operatorId(),
+                command.sellerId()
         );
         Product saved = productRepository.save(product);
         return new ResponseEntity<>(HttpStatus.CREATED.value(), ProductInfo.from(saved), 1);
